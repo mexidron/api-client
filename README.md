@@ -4,4 +4,5 @@
 ```
 pip install requests
 pip install simplejson
+pip install wifi
 ```
