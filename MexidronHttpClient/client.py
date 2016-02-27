@@ -18,6 +18,7 @@ class MexidronHttpClient:
         import magic
         mime = magic.Magic(mime=True)
 
+
         for filename in filenames:
             multiple_files = [(filename, (filename, open(filename, 'rb'), mime.from_file("testdata/test.pdf")))]
         url=self.server

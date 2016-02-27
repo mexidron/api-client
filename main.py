@@ -1,7 +1,9 @@
 from MexidronHttpClient.client import MexidronHttpClient as mhc
 import simplejson as json
-#import camera
+
+import camera
 import wifi.MexiWifi as wifi
+
 import ConfigParser, os
 
 
