@@ -39,7 +39,7 @@ if __name__ == '__main__':
         if value == 1:
             print "Llamando a trabajo..."
             response = controller.client.doGet(SERVER_NAME + API_WORKING)
-            controller.save_work(response)
+            controller.launch_work(response)
             print ""
         elif value == 2:
             print "Capturando imagenes..."
