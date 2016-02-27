@@ -15,11 +15,17 @@ class MexidronHttpClient:
         self.session=requests.Session()
         self.session.headers.update({'referer': self.server})
 
-    def doUpload(self, filename):
-        multiple_files = [('file', (filename, open(filename, 'rb'), 'text/plain'))]
+    def doUpload(self, filenames):
+        import magic
+        mime = magic.Magic(mime=True)
+
+        for filename in filenames
+            multiple_files = [(filename, (filename, open(filename, 'rb'), mime.from_file("testdata/test.pdf")))]
         url=self.server
         return(self.session.post(url, files=multiple_files))
 
+    def doGet(self,url):
+        return=sel.session.get(url)
 
     def test(self):
         response = self.doUpload("README.md")
