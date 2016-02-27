@@ -6,7 +6,6 @@ __all__ = ["MexidronHttpClient"]
 __author__ = "pnietoiglesias"
 __home_page__ = "http://github.com/mexidron/api-client"
 
-import os
 import requests
 
 class MexidronHttpClient:
@@ -19,13 +18,13 @@ class MexidronHttpClient:
         import magic
         mime = magic.Magic(mime=True)
 
-        for filename in filenames
+        for filename in filenames:
             multiple_files = [(filename, (filename, open(filename, 'rb'), mime.from_file("testdata/test.pdf")))]
         url=self.server
         return(self.session.post(url, files=multiple_files))
 
     def doGet(self,url):
-        return=sel.session.get(url)
+        return (sel.session.get(url))
 
 
 if __name__ == '__main__':
