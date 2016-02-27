@@ -1,6 +1,6 @@
 # api-client
 
-### Instalacion
+### Instalación
 ```
 pip install requests
 
