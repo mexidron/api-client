@@ -27,9 +27,6 @@ class MexidronHttpClient:
     def doGet(self,url):
         return=sel.session.get(url)
 
-    def test(self):
-        response = self.doUpload("README.md")
-        print(response.text)
 
 if __name__ == '__main__':
     mu=MexidronHttpClient("http://192.168.3.101:8000")

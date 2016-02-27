@@ -1,5 +1,6 @@
 from MexidronHttpClient.client import MexidronHttpClient as mhc
 import simplejson as json
+import camera
 import ConfigParser, os
 
 
