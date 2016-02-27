@@ -1,0 +1,5 @@
+cam_dev='/dev/video0'
+ssid='mexidron'
+passkey='None'
+wifi_eth='wlan0'
+data_path='/var/data/mexidron/'
