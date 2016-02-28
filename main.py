@@ -1,17 +1,15 @@
-from MexidronHttpClient.client import MexidronHttpClient as mhc
 import simplejson as json
 
 import camera
-import sensors.barometer
-import wifi.MexiWifi as wifi
+import config
 
-import ConfigParser, os
+from client import MexidronHttpClient as mhc
 
 
-class MexidronLoadImages:
-    def __init__(self):
+class MexidronLoaderImages:
+    def __init__(self,server):
         print mhc
-        self.client = mhc("http://192.168.3.101:8000")
+        self.client = mhc(server)
         self.json_example = '{"IMG1" : "foto.png","IdBatea",\
                             "b0001","IdCuerda": "b0001c01",\
                             "Timestamp": "2016-02-27T16:40:13+00:00",\
@@ -19,7 +17,7 @@ class MexidronLoadImages:
                             "Temperatura": "15",\
                             "Presion": "1,5"}'
 
-    def pushFiles(self,):
+    def pushFiles(self):
         parsed_json = json.loads(self.json_example)
         print(parsed_json['IMG'])
 
@@ -41,7 +39,6 @@ class CameraController:
         print period
 
     def takePhotos(self,path,period):
-        while (M)
         camera.take_pic(path + "/"+self.index + "_test1.jpeg")
         sleep(period)
         camera.take_pic(path + "/"+self.index + "_test2.jpeg")
@@ -55,7 +52,7 @@ class CameraController:
 
 if __name__ == '__main__':
     #cargamos clases a manejar
-    controller = MexidronLoadImages(SERVER_NAME)
+    controller = MexidronLoaderImages(config.SERVER_NAME)
 
     while True:
         controller.pending = False
@@ -67,8 +64,8 @@ if __name__ == '__main__':
         value = int(raw_input())
         if value == 1:
             print "Llamando a trabajo..."
-            response = controller.client.doGet(SERVER_NAME + API_WORKING)
-            c=.launch_work(response)
+            response = controller.client.doGet(config.SERVER_NAME + config.API_WORKING)
+            #c=.launch_work(response)
             print ""
         elif value == 2:
             print "Capturando imagenes..."

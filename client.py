@@ -25,7 +25,7 @@ class MexidronHttpClient:
         return(self.session.post(url, files=multiple_files))
 
     def doGet(self,url):
-        return (sel.session.get(url))
+        return (self.session.get(url))
 
 
 if __name__ == '__main__':
