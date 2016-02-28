@@ -2,6 +2,7 @@ from MexidronHttpClient.client import MexidronHttpClient as mhc
 import simplejson as json
 
 import camera
+import sensors.barometer
 import wifi.MexiWifi as wifi
 
 import ConfigParser, os
@@ -25,6 +26,32 @@ class MexidronLoadImages:
     def save_work(self,response):
         parsed_response = json.loads(reponse)
 
+class CameraController:
+    def __init__(self):
+        self.index = 0
+
+    def setIdBatea(self,id):
+        self.id_batea = id
+
+    def setCord(self,id_cord):
+        print id_cord
+
+    def setPeriod(self,period):
+        self.period = period
+        print period
+
+    def takePhotos(self,path,period):
+        while (M)
+        camera.take_pic(path + "/"+self.index + "_test1.jpeg")
+        sleep(period)
+        camera.take_pic(path + "/"+self.index + "_test2.jpeg")
+
+        #TODO
+        json_mock = [ { 'a' : 1, 'b' : 2, 'c' : 3, 'd' : 4, 'e' : 5 } ]
+        data = json.dumps(json_mock)
+
+        with open(path,self + self.index + '_data.json', 'w') as outfile:
+            json.dump(data, outfile)
 
 if __name__ == '__main__':
     #cargamos clases a manejar
@@ -41,7 +68,7 @@ if __name__ == '__main__':
         if value == 1:
             print "Llamando a trabajo..."
             response = controller.client.doGet(SERVER_NAME + API_WORKING)
-            controller.launch_work(response)
+            c=.launch_work(response)
             print ""
         elif value == 2:
             print "Capturando imagenes..."
