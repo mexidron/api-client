@@ -13,7 +13,11 @@ class MexiWifi:
         "This connects to a WiFi network with/without passkeys"
         from wifi import Cell, Scheme
         NotFound = True
-        ap_list=Cell.all(eth_device)
+        try:
+            ap_list=Cell.all(eth_device)
+        except:
+            print "Conectado a la Wifi: " + SSID
+            return
         while (NotFound):
             for item in ap_list:
                 if(item.ssid.find(SSID) == 0):

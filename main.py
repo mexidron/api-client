@@ -4,7 +4,7 @@ import os
 
 import camera
 import config
-import wifi
+from wifi_manager import MexiWifi
 
 from client import MexidronHttpClient as mhc
     #def pushFiles(self):
@@ -69,7 +69,7 @@ if __name__ == '__main__':
     #cargamos objetos a manejar
     client = mhc(config.SERVER_NAME)
     controller = Controller()
-    wifi_controller = wifi.MexiWifi()
+    wifi_controller = MexiWifi()
 
 
     #Creacion de directorios
