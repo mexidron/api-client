@@ -8,7 +8,7 @@ void setup() {
 pinMode (vcc,OUTPUT);
 pinMode (gnd,OUTPUT);
 // initialize serial communication:
-Serial.begin(9600);
+Serial.begin(115200);
 }
 
 void loop()
