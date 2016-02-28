@@ -91,17 +91,26 @@ if __name__ == '__main__':
 
 
     while True:
-        print "Pulse 0 para conectar al AP del batea"
-        print "Pulse 1 para iniciar simulacion"
-        print "Pulse 2 para iniciar captura de imagenes"
-        print "Pulse 3 para enviar imagenes al servidor"
-        print "Pulse 4 para salir"
+        print "Pulse 0 para iniciar simulacion"
+        print "Pulse 1 para conectar al AP del batea"
+        print "Pulse 2 para pedir trabajo pendiente"
+        print "Pulse 3 para iniciar captura de imagenes"
+        print "Pulse 4 para enviar imagenes al servidor"
+        print "Pulse 5 para salir"
         value = int(raw_input())
 
         if value == 0:
+            print "Iniciando simulacion..."
+            import glob
+            files = glob.glob(path + "/*.json")
+            for eachfile in files:
+                base = os.path.basename(eachfile)
+            sleep(2)
+        elif value == 1:
             print "Conectando a la wifi mexidron..."
             wifi_controller.wifi_connect(config.WIFI_ETH,config.WIFI_SSID,config.WIFI_PASSWORD)
-        elif value == 1:
+            sleep(2)
+        elif value == 2:
             print "Pediendo trabajo a batea..."
             response = client.doGet(config.API_CALL_JOBS)
             try:
@@ -119,7 +128,7 @@ if __name__ == '__main__':
             print "Descargando trabajo pendiente de batea: " + \
                     str(controller.batea_id) + " Cuerda: " + str(controller.cord_id) \
                     + " Altura de cuerda: " + str(controller.cord_lenght)
-            print "+-+-+-+-+"
+            time.sleep(2)
 
         elif value == 2:
             print "Capturando imagenes..."
@@ -130,6 +139,7 @@ if __name__ == '__main__':
             controller.upload_job(config.PATH_DATA_CAPTURE)
             print "Apagando interfaz wifi..."
             #wifi_controller.wifi_power_off()
-
+        elif value == 4:
+            print "Enviando imagenes..."
         else:
             break
