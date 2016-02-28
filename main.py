@@ -87,7 +87,7 @@ if __name__ == '__main__':
     #TODO activar la wifi
     print "Levantamos interfaz wifi..."
     print ""
-    wifi_controller.wifi_power_on()
+    wifi_controller.wifi_power_on(config.WIFI_ETH)
 
 
     while True:
@@ -100,7 +100,7 @@ if __name__ == '__main__':
 
         if value == 0:
             print "Conectando a la wifi mexidron..."
-
+            wifi_controller.wifi_connect(config.WIFI_ETH,config.WIFI_SSID,config.WIFI_PASSWORD)
         elif value == 1:
             print "Pediendo trabajo a batea..."
             response = client.doGet(config.API_CALL_JOBS)
@@ -128,6 +128,8 @@ if __name__ == '__main__':
         elif value == 3:
             print "Enviando imagenes..."
             controller.upload_job(config.PATH_DATA_CAPTURE)
+            print "Apagando interfaz wifi..."
+            #wifi_controller.wifi_power_off()
 
         else:
             break
