@@ -1,6 +1,12 @@
-SERVER_NAME = "http://192.168.1.109"
-API_WORKING = "/pendingwork"
-PATH_DATA_CAPTURE = "/home/udooer"
+SERVER_NAME = "http://192.168.3.107:3000"
+API_CALL_JOBS = "/jobs"
+API_UPLOAD_JOBS = "/jobs"
+#PATH_DATA_CAPTURE = "/home/udooer/mexidron/captures"
+#PATH_DATA_HISTORY = "/home/udooer/mexidron/history"
+PATH_DATA_CAPTURE = "/Users/pnieto/mexidron/captures"
+PATH_DATA_HISTORY = "/Users/pnieto/mexidron/history"
 DEVICE_NAME = "/dev/video1"
 WIFI_SSID = "mexidron"
 WIFI_PASSWORD = "udooers00"
+DRONE_SPEED = 1 #velociad en m/s
+DISTANCE = 15 #distancia a la cuerda en cm
