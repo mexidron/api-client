@@ -2,12 +2,12 @@ class MexiWifi:
     def wifi_power_on (eth_device):
         "This powers wifi ON"
         import subprocess
-        subprocess.call('ifconfig ' + WirelessETH +  ' up', shell=True)
+        subprocess.call('ifconfig ' + eth_device +  ' up', shell=True)
         return
     def wifi_power_off (eth_device):
         "This powers wifi OFF"
         import subprocess
-        subprocess.call('ifconfig ' + WirelessETH +  ' down', shell=True)
+        subprocess.call('ifconfig ' + eth_device +  ' down', shell=True)
         return
     def wifi_connect (eth_device, SSID, password):
         "This connects to a WiFi network with/without passkeys"

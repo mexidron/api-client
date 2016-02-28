@@ -7,6 +7,7 @@ __author__ = "pnietoiglesias"
 __home_page__ = "http://github.com/mexidron/api-client"
 
 import requests
+import config
 
 class MexidronHttpClient:
     def __init__(self, server="localhost"):
@@ -14,20 +15,18 @@ class MexidronHttpClient:
         self.session=requests.Session()
         self.session.headers.update({'referer': self.server})
 
-    def doUpload(self, filenames):
-        import magic
-        mime = magic.Magic(mime=True)
-
+    def doUpload(self, url, filenames):
 
         for filename in filenames:
-            multiple_files = [(filename, (filename, open(filename, 'rb'), mime.from_file("testdata/test.pdf")))]
-        url=self.server
-        return(self.session.post(url, files=multiple_files))
+            #print "Subiendo fichero... " + filename
+            multiple_files = [(filename, (filename, open(config.PATH_DATA_CAPTURE + "/"+filename, 'rb')))]
+        url_post=self.server + url
+        return(self.session.post(url_post, files=multiple_files))
 
     def doGet(self,url):
-        return (self.session.get(url))
+        return (self.session.get(self.server + url))
 
 
 if __name__ == '__main__':
-    mu=MexidronHttpClient("http://192.168.3.101:8000")
-    mu.test()
+    mu=MexidronHttpClient("http://google.com")
+    mu.doGet()

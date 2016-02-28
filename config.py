@@ -5,6 +5,7 @@ API_UPLOAD_JOBS = "/jobs"
 #PATH_DATA_HISTORY = "/home/udooer/mexidron/history"
 PATH_DATA_CAPTURE = "/Users/pnieto/mexidron/captures"
 PATH_DATA_HISTORY = "/Users/pnieto/mexidron/history"
+WIFI_ETH='wlan0'
 DEVICE_NAME = "/dev/video1"
 WIFI_SSID = "mexidron"
 WIFI_PASSWORD = "udooers00"
