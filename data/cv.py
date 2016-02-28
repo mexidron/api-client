@@ -2,6 +2,7 @@
 
 import sys
 import cv2
+import numpy
 
 width = 160
 png_file = sys.argv[1] if len(sys.argv) == 2 else "img.jpeg"
@@ -19,8 +20,8 @@ image_edges = cv2.Canny(image_gray, 80, 150)
 cv2.imwrite("2_image_edges.png", image_edges)
 
 #CLEAN
-kernel = np.ones((12,12),np.uint8)
-opening = cv2.morphologyEx(bordes, cv2.MORPH_GRADIENT, kernel)
+kernel = numpy.ones((12,12), numpy.uint8)
+opening = cv2.morphologyEx(image_edges, cv2.MORPH_GRADIENT, kernel)
 cv2.imwrite("3_image_clean.jpg", opening)
 
 
